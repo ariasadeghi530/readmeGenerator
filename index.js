@@ -1,7 +1,22 @@
 const axios = require('axios');
 const inquirer = require('inquirer');
 
+const questions = [
 
+];
+
+function writeToFile(fileName, data) {
+}
+
+function init() {
+
+}
+
+init();
+
+
+
+// 
 // axios.get('https://api.github.com/users/ariasadeghi530')
 //   .then(function (response) {
 //     // handle success
@@ -13,19 +28,18 @@ const inquirer = require('inquirer');
 //     console.log(error);
 //   });
 
-inquirer.prompt([
-  {
-    type: 'input',
-    name: 'user',
-    message: 'Type your GitHub username'
-  },
-  {
-    type: 'input',
-    name: 'title',
-    message: 'What is your project title?'
-  }
-])
-.then(response => {
-  console.log(response);
-})
-
+// inquirer.prompt([
+//   {
+//     type: 'input',
+//     name: 'user',
+//     message: 'Type your GitHub username'
+//   },
+//   {
+//     type: 'input',
+//     name: 'title',
+//     message: 'What is your project title?'
+//   }
+// ])
+//   .then(response => {
+//     console.log(response);
+//   })
