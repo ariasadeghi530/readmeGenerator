@@ -32,8 +32,8 @@ ${data.contribute}
 ${data.test}
 
 ## Questions
-![GitHub Logo](${data.avatar_url})
-Format: ![Alt Text](${data.avatar_url})
+![User Img](${data.avatar_url})
+
 Please ask any questions to ${data.name} at ${data.email}.
 `;
 

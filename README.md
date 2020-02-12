@@ -28,6 +28,6 @@ N/A
 npm test
 
 ## Questions
-![GitHub Logo](https://avatars0.githubusercontent.com/u/59296922?v=4)
-Format: ![Alt Text](https://avatars0.githubusercontent.com/u/59296922?v=4)
+![User Img](https://avatars0.githubusercontent.com/u/59296922?v=4)
+
 Please ask any questions to Aria Sadeghi at ariasadeghi@gmail.com.
