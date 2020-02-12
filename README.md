@@ -1,5 +1,5 @@
 
-# README Generator
+# README Generator 
 
 ## Description
 Use this generator as quick and easy way to create a markdown file for your GitHub project
@@ -13,20 +13,21 @@ Use this generator as quick and easy way to create a markdown file for your GitH
   * [Questions](#questions)
   
 ## Installation
-npm i 
+npm i
 
 ## Usage
-Run <node index.js> in the terminal
+Simply run <node index.js> in the terminal, when in correct directory containing index.js, aand the utils folder.
 
 ## License
-No license
+N/A
 
 ## Contributing
-Not open source
+N/A
 
 ## Test
 npm test
 
 ## Questions
-https://avatars0.githubusercontent.com/u/59296922?v=4
-Please ask any questions to Aria Sadeghi at null.
+![GitHub Logo](https://avatars0.githubusercontent.com/u/59296922?v=4)
+Format: ![Alt Text](https://avatars0.githubusercontent.com/u/59296922?v=4)
+Please ask any questions to Aria Sadeghi at ariasadeghi@gmail.com.
