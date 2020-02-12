@@ -2,21 +2,26 @@ const userInfo = require('./utils/api.js');
 const generateMarkdown = require('./utils/generateMarkdown.js');
 const inquirer = require('inquirer');
 const fs = require('fs');
-let user;
-let desciption;
-let title;
-let install;
+const path = require('path');
+
+const api = require('./utils/api.js');
+
 
 
 const questions = [
-"What is your GitHub username?",
-"What is the title of your project?",
-'Please enter a project description',
-"Please enter an installation guide"
+  "What is your GitHub username?",
+  "What is the title of your project?",
+  'Please enter a project description:',
+  "Please enter an installation guide:",
+  "How does the user use this app?",
+  "What does the user need to know about the license?",
+  "What does the user need to know about contributions?",
+  "What command would you run to test this app?"
+  
 ];
 
 function writeToFile(fileName, data) {
-  fs.writeFile(`${fileName}.md`, generateMarkdown(data), e => e ? console.log(e) : console.log('success'));
+  return fs.writeFileSync(path.join(process.cwd(), fileName), data);
 }
 
 function init() {
@@ -40,17 +45,40 @@ function init() {
       type: "input",
       name: 'install',
       message: questions[3]
+    },
+    {
+      type: "input",
+      name: 'usage',
+      message: questions[4]
+    },
+    {
+      type: "input",
+      name: 'license',
+      message: questions[5]
+    },
+    {
+      type: "input",
+      name: 'contribute',
+      message: questions[6]
+    },
+    {
+      type: "input",
+      name: 'test',
+      message: questions[7]
     }
+
   ])
-  .then( response => {
-    let info = {
-      user: response.user,
-      title: response.title;
-      description: response.description;
-      install: response.install
-    };
-    writeToFile("README", info);
-  })
+    .then(response => {
+
+
+
+      api
+        .getUser(response.user)
+        .then(({ data }) => {
+        
+          writeToFile("README.md", generateMarkdown({ ...data, ...response }));
+        })
+    })
 }
 
 init();
@@ -59,30 +87,3 @@ init();
 
 
 
-// 
-// axios.get('https://api.github.com/users/ariasadeghi530')
-//   .then(function (response) {
-//     // handle success
-//     // console.log(response.data.avatar_url, response.data.email);
-//     console.log(response.data);
-//   })
-//   .catch(function (error) {
-//     // handle error
-//     console.log(error);
-//   });
-
-// inquirer.prompt([
-//   {
-//     type: 'input',
-//     name: 'user',
-//     message: 'Type your GitHub username'
-//   },
-//   {
-//     type: 'input',
-//     name: 'title',
-//     message: 'What is your project title?'
-//   }
-// ])
-//   .then(response => {
-//     console.log(response);
-//   })
