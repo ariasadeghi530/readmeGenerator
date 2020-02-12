@@ -1,11 +1,12 @@
 const userInfo = require('./utils/api.js');
+const generateMarkdown = require('./utils/generateMarkdown.js');
 const inquirer = require('inquirer');
 const fs = require('fs');
 let user;
 let desciption;
 let title;
 let install;
-let info = [user, desciption, title, install];
+
 
 const questions = [
 "What is your GitHub username?",
@@ -15,7 +16,7 @@ const questions = [
 ];
 
 function writeToFile(fileName, data) {
-
+  fs.writeFile(`${fileName}.md`, generateMarkdown(data), e => e ? console.log(e) : console.log('success'));
 }
 
 function init() {
@@ -42,10 +43,13 @@ function init() {
     }
   ])
   .then( response => {
-    let user = response.user;
-    let title = response.title;
-    let desciption = response.description;
-    let install = response.install;
+    let info = {
+      user: response.user,
+      title: response.title;
+      description: response.description;
+      install: response.install
+    };
+    writeToFile("README", info);
   })
 }
 
